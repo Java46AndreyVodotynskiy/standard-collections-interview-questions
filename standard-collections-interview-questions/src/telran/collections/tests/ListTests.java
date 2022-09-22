@@ -66,5 +66,18 @@ class ListTests {
 		
 		
 	}
-
+	
+	@Test
+	void removeRepeatedTest() {
+		listMutable.addAll(Arrays.asList(numbers));
+		removeRepeated(listMutable);
+		assertArrayEquals(numbers, listMutable.toArray(Integer[]::new));
+	}
+	
+	private void removeRepeated(List<Integer> list) {
+		// TODO Auto-generated method stub
+		//most optimal way for removing the repeated elements
+		//O[N]
+		
+	}
 }
