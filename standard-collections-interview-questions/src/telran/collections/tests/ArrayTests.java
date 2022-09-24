@@ -2,6 +2,8 @@ package telran.collections.tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
+import java.util.HashSet;
 
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +23,15 @@ class ArrayTests {
  * half of total sum of a given array
  */
 	private boolean isHalfSumTwoNumbers(int[] array) {
-		// TODO Auto-generated method stub
+		int halfSum = Arrays.stream(array).sum() / 2;
+		HashSet<Integer> setHelper = new HashSet<>();
+		for(int num: array) {
+			if (setHelper.contains(halfSum - num)) {
+				return true;
+			}
+			setHelper.add(num);
+		}
+		
 		return false;
 	}
 	
@@ -29,7 +39,7 @@ class ArrayTests {
 	void valueWithMaxNegativeTest() {
 		int arWithNegative[] = {10, 20000000, 2, 4, 40, -4, 10, -20000000, -2};
 		int arWithNoNegative[] = {10, 20, 2, 4, 40, -14, 10, -21, -3};
-		assertEquals(20, valueWithMaxNegative(arWithNegative));
+		assertEquals(20000000, valueWithMaxNegative(arWithNegative));
 		assertEquals(-1, valueWithMaxNegative(arWithNoNegative));
 	}
 	/**
@@ -39,8 +49,17 @@ class ArrayTests {
 	 * if no value with its negative image the function returns -1
 	 */
 	private Integer valueWithMaxNegative(int[] array) {
-		// TODO Auto-generated method stub
-		return -1;
+		int res = -1;
+		HashSet<Integer> setHelper = new HashSet<>();
+		for (int num: array) {
+			int absNum = Math.abs(num);
+			if (setHelper.contains(-num) && absNum > res) {
+				res = absNum;
+			}
+			setHelper.add(num);
+		}
+		
+		return res;
 	}
 
 }

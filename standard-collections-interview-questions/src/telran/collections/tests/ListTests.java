@@ -75,7 +75,9 @@ class ListTests {
 	}
 	
 	private void removeRepeated(List<Integer> list) {
-		// TODO Auto-generated method stub
+		HashSet<Integer> set = new HashSet<Integer>(list);
+		list.clear();
+		list.addAll(set);
 		//most optimal way for removing the repeated elements
 		//O[N]
 		
