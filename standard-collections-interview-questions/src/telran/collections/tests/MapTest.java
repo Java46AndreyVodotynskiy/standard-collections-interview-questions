@@ -1,7 +1,5 @@
 package telran.collections.tests;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +18,7 @@ class MapTest {
 
 	private void displayStringOccurrences(String[] strings) {
 		Map<String, Integer> mapOccurrences = getMapOccurrences(strings);
+		@SuppressWarnings("unused")
 		List<Map.Entry<String, Integer>> sortedListOccurrences = getSortedList(mapOccurrences);
 		
 	}
